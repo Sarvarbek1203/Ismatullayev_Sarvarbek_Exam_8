@@ -1,0 +1,20 @@
+docker run --name sarvarbek  -e POSTGRES_PASSWORD=1 -p 5434:5432 -v pgdata:/var/lib/postgresql/data -d postgres:alpine
+//
+sudo docker exec it container_id bash
+//
+psql -U postgres
+//
+create database sarvarbek_db;
+//
+\c sarvarbek
+//
+CREATE USER sarvarbek WITH PASSWORD '1';
+//
+GRANT ALL PRIVILEGES ON DATABASE sarvarbek_db TO sarvarbek;
+//
+python3 manage.py makemigrations
+python3 manage.py migrate
+python3 manage.py createsuperuser
+
+
+
